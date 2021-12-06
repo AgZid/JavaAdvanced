@@ -3,7 +3,7 @@ package testingRecap;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class CalculatorTest {
@@ -37,8 +37,7 @@ class CalculatorTest {
 
         int actualAddResult = calculator.subtractTwoNumbers(firstNumber, secondNumber);
 
-        assertEquals(-9, actualAddResult);
-        assertThat(actualAddResult).isEqualTo(-9); //analogiskas tikrinimas su assertj
+        assertThat(actualAddResult).isEqualTo(-9);
     }
 
     @Test
@@ -48,7 +47,41 @@ class CalculatorTest {
         int actualResult = calculator.subtractMultipleNumbers(numbersToTest);
 
         assertThat(actualResult).isEqualTo(1);
-        //assertEquals(15,actualResult);
+    }
+
+    @Test
+    void testMultiplyTwoNumbers() {
+        assertThat(calculator.multiplyTwoNumbers(1, 10)).isEqualTo(10);
+    }
+
+    @Test
+    void testMultiplyMultipleNumbers() {
+        int[] numbersToTest = {5 ,2, -3, 4, 1};
+
+        int actualResult = calculator.multiplyMultipleNumbers(numbersToTest);
+
+        assertThat(actualResult).isEqualTo(-120);
+    }
+
+    @Test
+    void testDivideTwoNumbers() {
+        assertThat(calculator.divideTwoNumbers(4, 2)).isEqualTo(2);
+    }
+
+    @Test
+    void testDivideTwoNumbersWhereResultIsNotInteger() {
+        assertThat(calculator.divideTwoNumbers(9, 2)).isEqualTo(4.5);
+    }
+
+    @Test
+    void testDivideNumberByZero() {
+
+        ArithmeticException exception = assertThrows(
+                ArithmeticException.class,
+                () -> calculator.divideTwoNumbers(5, 0)
+        );
+
+        assertTrue(exception.getMessage().contains("by zero"));
     }
 
 
