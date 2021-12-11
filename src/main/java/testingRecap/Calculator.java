@@ -46,11 +46,12 @@ public class Calculator {
     }
 
     public int multiplyTwoNumbers(int firstNumber, int secondNumber) {
-        LOGGER.info("Multiply two numbers");
+        LOGGER.info("Multiply two numbers" + firstNumber + " and " + secondNumber);
         return firstNumber * secondNumber;
     }
 
     public int multiplyMultipleNumbers(int[] numbers) {
+        LOGGER.info("Multiply multiple numbers" + Arrays.toString(numbers));
         int multiply = 1;
         for(int number : numbers) {
             multiply *= number;
@@ -59,6 +60,7 @@ public class Calculator {
     }
 
     public double divideTwoNumbers(int firstNumber, int secondNumber) {
+        LOGGER.info("Divide two numbers" + firstNumber + " and " + secondNumber);
         if (secondNumber == 0) {
             throw new ArithmeticException("Cannot divide by zero!");
         }
