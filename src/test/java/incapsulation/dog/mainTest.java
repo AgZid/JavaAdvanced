@@ -4,9 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class dogTest {
-    static Dog barbosas;
-    static Dog puke;
+class DogTest {
+    private Dog barbosas;
+    private Dog puke;
 
     @BeforeEach
     void setUp() {
