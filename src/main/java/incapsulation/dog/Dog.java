@@ -18,6 +18,18 @@ public class Dog {
         this.weight = weight;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
     public Dog(String gender, String race) {
         this("Reksas", 8, gender, race, 7.1);
     }
@@ -43,6 +55,30 @@ public class Dog {
             this.weight = weight;
         } else {
             System.out.println("Netinkamas svoris");
+        }
+    }
+
+    public void setName(String name) {
+        if (name.length() > 2) {
+            this.name = name;
+        } else {
+            System.out.println("Netinkamas vardas");
+        }
+    }
+
+    public void setGender(String gender) {
+        if (gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("female") ) {
+            this.gender = gender;
+        } else {
+            System.out.println("Netinkama lytis");
+        }
+    }
+
+    public void setRace(String race) {
+        if (race.length() >= 3) {
+            this.race = race;
+        } else {
+            System.out.println("Netinkamas lentynių pavadinimas");
         }
     }
 

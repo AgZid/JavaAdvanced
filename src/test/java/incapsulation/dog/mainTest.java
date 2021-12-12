@@ -10,9 +10,10 @@ class DogTest {
 
     @BeforeEach
     void setUp() {
-        barbosas = new Dog("Bobikas", 4, "male", "GoldenRace", 8.25);
+        barbosas = new Dog("Barbosas", 4, "male", "GoldenRace", 8.25);
         puke = new Dog("Female", "LegendRace");
     }
+    //prideti konstruktoiaus validacija
 
     @Test
     void testGetAge(){
@@ -62,4 +63,59 @@ class DogTest {
         assertThat(barbosas.getWeight()).isEqualTo(8.25);
         assertThat(puke.getWeight()).isEqualTo(7.1);
     }
+
+    @Test
+    void testSetName_validName(){
+        barbosas.setName("Dikas");
+        puke.setName("Puke");
+
+        assertThat(barbosas.getName()).isEqualTo("Dikas");
+        assertThat(puke.getName()).isEqualTo("Puke");
+    }
+
+    @Test
+    void testSetName_invalidName(){
+        barbosas.setName("Di");
+        puke.setName("L");
+
+        assertThat(barbosas.getName()).isEqualTo("Barbosas");
+        assertThat(puke.getName()).isEqualTo("Reksas");
+    }
+
+    @Test
+    void testSetGender_validGender(){
+        barbosas.setGender("female");
+        puke.setGender("MALE");
+
+        assertThat(barbosas.getGender()).isEqualTo("female");
+        assertThat(puke.getGender()).isEqualTo("MALE");
+    }
+
+    @Test
+    void testSetGender_invalidGender(){
+        barbosas.setGender("No");
+        puke.setName("NO");
+
+        assertThat(barbosas.getGender()).isEqualTo("Male");
+        assertThat(puke.getGender()).isEqualTo("Female");
+    }
+
+    @Test
+    void testSetRace_validRace(){
+        barbosas.setRace("BigRace");
+        puke.setGender("MALE");
+
+        assertThat(barbosas.getGender()).isEqualTo("female");
+        assertThat(puke.getGender()).isEqualTo("MALE");
+    }
+
+    @Test
+    void testSetRace_invalidRace(){
+        barbosas.setGender("No");
+        puke.setName("NO");
+
+        assertThat(barbosas.getGender()).isEqualTo("Male");
+        assertThat(puke.getGender()).isEqualTo("Female");
+    }
+
 }
